@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { observer, inject } from "mobx-react/native";
 import { HeaderTab } from "../components";
+
+@inject("rootStore")
+@observer
 export class Home extends Component {
   componentDidMount() {
     console.log("Home componentDidMount");
+    this.initData();
   }
   componentDidFocus() {
     console.log("Home componentDidFocus");
@@ -19,6 +24,10 @@ export class Home extends Component {
 
   initData = () => {
     console.log("Home >> initData");
+    this.props.rootStore.popularStore.search({
+      q: "javascript",
+      sort: "starts"
+    });
   };
   render() {
     const { navigation: { state: { routeName } } } = this.props;

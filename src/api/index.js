@@ -3,7 +3,7 @@ import config from "../config";
 import store from "../stores";
 const api = create({
   baseURL: config.apiBaseURL,
-  headers: { Accept: "application/json" }
+  headers: { Accept: "application/vnd.github.mercy-preview+json" }
   //TODO Timeout
   //timeout: 10000
 });
@@ -14,15 +14,24 @@ api.addResponseTransform(res => {
 });
 
 api.addRequestTransform(req => {
+  console.log("addRequestTransform", req);
   store.loadingStore.noCallApi++;
 });
 
 export const apiGet = (path, params) => {
-  return api.get(path, { params: params }).then(res => res.data);
+  return api.get(path + "?" + tranformGetParam(params)).then(res => res.data);
 };
 
 export const apiPost = (path, params) => {
   return api.post(path, params).then(res => res.data);
+};
+
+tranformGetParam = obj => {
+  const result = Object.keys(obj).reduce(
+    (prev, key, i) => `${prev}${i !== 0 ? "&" : ""}${key}=${obj[key]}`,
+    ""
+  );
+  return result;
 };
 
 transformResponse = res => {
