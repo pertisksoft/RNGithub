@@ -5,7 +5,7 @@ import {
   Button
 } from "react-native-paper";
 import { View, StyleSheet } from "react-native";
-
+import { AppNavigator } from "./RouteConfig";
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -14,16 +14,12 @@ const theme = {
     //accent: "yellow"
   }
 };
-
-export default class App extends Component {
+type Props = {};
+export default class App extends Component<Props> {
   render() {
     return (
       <PaperProvider theme={theme}>
-        <View style={styles.container}>
-          <Button primary raised onPress={() => console.log("Pressed")}>
-            Press me
-          </Button>
-        </View>
+        <AppNavigator />
       </PaperProvider>
     );
   }
