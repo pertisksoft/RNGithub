@@ -1,13 +1,25 @@
-/* @flow */
-
-import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 export class Trending extends Component {
+  componentDidMount() {
+    console.log("Trending componentDidMount");
+  }
+  componentDidFocus() {
+    console.log("Trending componentDidFocus");
+    this.initData();
+  }
+
+  componentWillBlur() {
+    console.log("Trending componentWillBlur");
+  }
+  componentWillUnmount() {
+    console.log("Trending componentWillUnmount");
+  }
+
+  initData = () => {
+    console.log("Trending >> initData");
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -19,6 +31,6 @@ export class Trending extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });

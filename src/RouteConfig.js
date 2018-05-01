@@ -1,16 +1,12 @@
-import { StackNavigator, TabNavigator } from "react-navigation";
+import React, { Component } from "react";
+import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
 import { configRoute } from "react-navigation-easy-helper";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-// tab nav
 import { Home, Trending, Popular, Profile, Favorite } from "./screens";
-
-// stack nav
 import { Welcome, Login, Search } from "./screens";
 
-// tabbar component
-//import { BottomNavigator } from "./components";
-
-const TabNav = TabNavigator(
+const TabNavigation = TabNavigator(
   configRoute({
     Home: { screen: Home },
     Trending: { screen: Trending },
@@ -20,15 +16,41 @@ const TabNav = TabNavigator(
   }),
   {
     tabBarPosition: "bottom",
-    //tabBarComponent: BottomNavigator,
     swipeEnabled: false,
-    animationEnabled: false
+    animationEnabled: false,
+    tabBarComponent: TabBarBottom,
+    tabBarOptions: {
+      activeTintColor: "#0091EA",
+      inactiveTintColor: "#666",
+      style: {
+        backgroundColor: "white",
+        borderTopWidth: 0
+      }
+    },
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === "Home") {
+          iconName = "home";
+        } else if (routeName === "Trending") {
+          iconName = "visibility";
+        } else if (routeName === "Popular") {
+          iconName = "star";
+        } else if (routeName === "Favorite") {
+          iconName = "schedule";
+        } else if (routeName === "Profile") {
+          iconName = "person-outline";
+        }
+        return <MaterialIcons name={iconName} size={25} color={tintColor} />;
+      }
+    })
   }
 );
 
 export const AppNavigator = StackNavigator(
   configRoute({
-    Tab: { screen: TabNav },
+    Tab: { screen: TabNavigation },
     Welcome: { screen: Welcome },
     Login: { screen: Login },
     Search: { screen: Search }
