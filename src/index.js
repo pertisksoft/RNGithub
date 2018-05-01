@@ -9,9 +9,9 @@ import { View, StyleSheet } from "react-native";
 const theme = {
   ...DefaultTheme,
   colors: {
-    ...DefaultTheme.colors,
-    primary: "#ff5722",
-    accent: "yellow"
+    ...DefaultTheme.colors
+    //primary: "#ff5722",
+    //accent: "yellow"
   }
 };
 
