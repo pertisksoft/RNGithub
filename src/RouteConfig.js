@@ -24,7 +24,18 @@ const TabNavigation = TabNavigator(
       inactiveTintColor: "#666",
       style: {
         backgroundColor: "white",
-        borderTopWidth: 0
+        borderColor: "#fcfcfc",
+        borderTopWidth: 0,
+        marginTop: -10,
+        paddingTop: 10,
+        shadowRadius: 5,
+        shadowOpacity: 0.4,
+        shadowOffset: {
+          width: 0,
+          height: -3
+        },
+        shadowColor: "#e8eaf6",
+        elevation: 4
       }
     },
     navigationOptions: ({ navigation }) => ({

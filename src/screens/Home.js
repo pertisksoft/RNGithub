@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-
+import { HeaderTab } from "../components";
 export class Home extends Component {
   componentDidMount() {
     console.log("Home componentDidMount");
@@ -21,9 +21,10 @@ export class Home extends Component {
     console.log("Home >> initData");
   };
   render() {
+    const { navigation: { state: { routeName } } } = this.props;
     return (
       <View style={styles.container}>
-        <Text>I'm the Home component</Text>
+        <HeaderTab title={routeName} />
       </View>
     );
   }

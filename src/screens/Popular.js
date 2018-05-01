@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-
+import { HeaderTab } from "../components";
 export class Popular extends Component {
   componentDidMount() {
     console.log("Popular componentDidMount");
@@ -21,9 +21,10 @@ export class Popular extends Component {
     console.log("Popular >> initData");
   };
   render() {
+    const { navigation: { state: { routeName } } } = this.props;
     return (
       <View style={styles.container}>
-        <Text>I'm the Popular component</Text>
+        <HeaderTab title={routeName} />
       </View>
     );
   }

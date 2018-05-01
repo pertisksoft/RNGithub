@@ -4,8 +4,11 @@ import {
   Provider as PaperProvider,
   Button
 } from "react-native-paper";
+import { Provider } from "mobx-react";
 import { View, StyleSheet } from "react-native";
+
 import { AppNavigator } from "./RouteConfig";
+import store from "./stores";
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -18,9 +21,11 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <PaperProvider theme={theme}>
-        <AppNavigator />
-      </PaperProvider>
+      <Provider rootStore={store}>
+        <PaperProvider theme={theme}>
+          <AppNavigator />
+        </PaperProvider>
+      </Provider>
     );
   }
 }

@@ -1,1 +1,1 @@
-export { BottomNavigator } from "./BottomNavigator";
+export { HeaderTab } from "./HeaderTab";
