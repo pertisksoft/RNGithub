@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StackNavigator, TabNavigator, TabBarBottom } from "react-navigation";
-import { configRoute } from "react-navigation-easy-helper";
+import { configRoute } from "./utils";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 import { Home, Trending, Popular, Profile, Favorite } from "./screens";
@@ -15,6 +15,7 @@ const TabNavigation = TabNavigator(
     Profile: { screen: Profile }
   }),
   {
+    //initialRouteName: "Home",
     tabBarPosition: "bottom",
     swipeEnabled: false,
     animationEnabled: false,
@@ -41,6 +42,7 @@ const TabNavigation = TabNavigator(
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
+        //console.log("navigationOptions", routeName, focused);
         let iconName;
         if (routeName === "Home") {
           iconName = "home";
@@ -61,19 +63,19 @@ const TabNavigation = TabNavigator(
 
 export const AppNavigator = StackNavigator(
   configRoute({
-    Tab: { screen: TabNavigation },
     Welcome: { screen: Welcome },
+    Tab: { screen: TabNavigation },
     Login: { screen: Login },
     Search: { screen: Search }
   }),
   {
     initialRouteName: "Tab",
-    headerMode: "none",
-    onTransitionStart: e => {
-      //console.log("onTransitionStart", e);
+    headerMode: "none"
+    /*onTransitionStart: e => {
+      console.log("onTransitionStart", e);
     },
     onTransitionEnd: e => {
-      //console.log("onTransitionEnd", e);
-    }
+      console.log("onTransitionEnd", e);
+    }*/
   }
 );

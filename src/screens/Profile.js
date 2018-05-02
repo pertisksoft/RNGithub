@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
 import { HeaderTab } from "../components";
+import { ProfilePage } from "../pages";
 export class Profile extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     console.log("Profile componentDidMount");
   }
@@ -21,17 +24,6 @@ export class Profile extends Component {
     console.log("Profile >> initData");
   };
   render() {
-    const { navigation: { state: { routeName } } } = this.props;
-    return (
-      <View style={styles.container}>
-        <HeaderTab title={routeName} />
-      </View>
-    );
+    return <ProfilePage {...this.props} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});

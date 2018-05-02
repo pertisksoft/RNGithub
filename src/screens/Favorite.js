@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
 import { HeaderTab } from "../components";
+import { FavoritePage } from "../pages";
 export class Favorite extends Component {
   componentDidMount() {
     console.log("Favorite componentDidMount");
@@ -21,17 +21,6 @@ export class Favorite extends Component {
     console.log("Favorite >> initData");
   };
   render() {
-    const { navigation: { state: { routeName } } } = this.props;
-    return (
-      <View style={styles.container}>
-        <HeaderTab title={routeName} />
-      </View>
-    );
+    return <FavoritePage {...this.props} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});

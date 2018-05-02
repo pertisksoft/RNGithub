@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
 import { HeaderTab } from "../components";
+import { PopularPage } from "../pages";
 export class Popular extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     console.log("Popular componentDidMount");
   }
@@ -21,17 +24,6 @@ export class Popular extends Component {
     console.log("Popular >> initData");
   };
   render() {
-    const { navigation: { state: { routeName } } } = this.props;
-    return (
-      <View style={styles.container}>
-        <HeaderTab title={routeName} />
-      </View>
-    );
+    return <PopularPage {...this.props} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});

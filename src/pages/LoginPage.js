@@ -1,14 +1,13 @@
+/* @flow */
+
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { RouteHelper } from "../utils";
-export class Welcome extends Component {
-  componentDidMount() {
-    //RouteHelper.navigate("Tab");
-  }
+
+export class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the Welcome component</Text>
+        <Text>I'm the Login component</Text>
       </View>
     );
   }

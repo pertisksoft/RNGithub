@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
 import { HeaderTab } from "../components";
+import { TrendingPage } from "../pages";
 export class Trending extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     console.log("Trending componentDidMount");
   }
@@ -21,17 +24,6 @@ export class Trending extends Component {
     console.log("Trending >> initData");
   };
   render() {
-    const { navigation: { state: { routeName } } } = this.props;
-    return (
-      <View style={styles.container}>
-        <HeaderTab title={routeName} />
-      </View>
-    );
+    return <TrendingPage {...this.props} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});

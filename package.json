@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "apisauce": "^0.14.3",
+    "hoist-non-react-statics": "^2.5.0",
     "lodash": "^4.17.10",
     "mobx": "^4.2.0",
     "mobx-react": "^5.0.0",
@@ -21,8 +22,7 @@
     "react-native-responsive-layout": "^1.0.0",
     "react-native-smart-splash-screen": "^2.3.5",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^1.5.11",
-    "react-navigation-easy-helper": "^1.2.0"
+    "react-navigation": "^1.5.11"
   },
   "devDependencies": {
     "babel-jest": "22.4.3",
@@ -30,6 +30,7 @@
     "babel-preset-react-native": "4.0.0",
     "color-term-console": "^1.0.4",
     "jest": "22.4.3",
+    "react-native-json-tree": "^1.2.0",
     "react-test-renderer": "16.3.1"
   },
   "jest": {

@@ -14,7 +14,6 @@ api.addResponseTransform(res => {
 });
 
 api.addRequestTransform(req => {
-  console.log("addRequestTransform", req);
   store.loadingStore.noCallApi++;
 });
 

@@ -2,12 +2,12 @@ import { observable } from "mobx";
 import { apiGet, apiPost } from "../../api";
 
 export class PopularStore {
-  @observable populars = {};
+  @observable populars = { items: [] };
 
   search(payload) {
-    this.populars = {};
+    this.populars = { items: [] };
     apiGet("search/repositories", payload).then(res => {
-      console.log("search", res);
+      //console.log("search", res);
       this.populars = res;
     });
   }

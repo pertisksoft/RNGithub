@@ -6,7 +6,7 @@ import {
   ToolbarContent,
   ToolbarAction
 } from "react-native-paper";
-import { RouteHelper } from "react-navigation-easy-helper";
+import { RouteHelper } from "../utils";
 export class HeaderTab extends Component {
   goBack = () => {
     RouteHelper.goBack();
