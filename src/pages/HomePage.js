@@ -11,13 +11,19 @@ import { HeaderTab } from "../components";
 export class HomePage extends Component {
   constructor(props) {
     super(props);
+    this.observer = props.observer;
   }
   componentDidMount() {
     console.log("HomePage componentDidMount");
-    //this.initData();
+    this.observer.subscribe("initData", data => {
+      console.log("home  event initData >> data: " + data);
+      this.initData();
+    });
   }
   componentWillUnmount() {
     console.log("HomePage componentWillUnmount");
+    this.observer.unsubscribe("initData");
+    console.log("HomePage unsubscribe initData");
   }
 
   initData = () => {
@@ -33,7 +39,7 @@ export class HomePage extends Component {
       <View style={styles.container}>
         <HeaderTab title={routeName} />
         <ScrollView>
-          <Text>OK</Text>
+          <JSONTree data={this.props.rootStore.popularStore.populars.items} />
         </ScrollView>
       </View>
     );

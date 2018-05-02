@@ -4377,6 +4377,10 @@ react-devtools-core@3.1.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-event-observer@^0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/react-event-observer/-/react-event-observer-0.5.11.tgz#e5fa21da3d0d3d4977a04150a1d9abdb45ad4a0c"
+
 react-is@^16.3.1:
   version "16.3.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.3.2.tgz#f4d3d0e2f5fbb6ac46450641eb2e25bf05d36b22"
